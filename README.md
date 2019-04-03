@@ -1,2 +1,4 @@
 # collaboration-and-competition
-Pytorch version of Multi agent DDPG.
+### Environment Details
+
+![Tennis](https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/tennis.png)

@@ -25,3 +25,17 @@ please find the pseudocode from [here](https://spinningup.openai.com/en/latest/a
 For this project I have used a variant of DDPG called Multi Agent Deep Deterministic Policy Gradient (MADDPG) which is described in the paper [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/abs/1706.02275)
   > We explore deep reinforcement learning methods for multi-agent domains. We begin by analyzing the difficulty of traditional algorithms in the multi-agent case: Q-learning is challenged by an inherent non-stationarity of the environment, while policy gradient suffers from a variance that increases as the number of agents grows. We then present an adaptation of actor-critic methods that considers action policies of other agents and is able to successfully learn policies that require complex multi-agent coordination. Additionally, we introduce a training regimen utilizing an ensemble of policies for each agent that leads to more robust multi-agent policies. We show the strength of our approach compared to existing methods in cooperative as well as competitive scenarios, where agent populations are able to discover various physical and informational coordination strategies.
   
+### Code implementation
+The code was implemented as a reference from the [Udacity DDPG Bipedel] (https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) and has been modified for the Reacher environment
+
+The code consist of 
+* `model.py` - Implement the Actor and the Critic classes.
+  - The Actor and Critic classes each implements a Target and a Local Neural Networks used for the training.
+* `multiagent_ddpg.py` - Implements the Multi-agent DDPG algorithm
+  - The `maddpg` belongs to ddpg_agent
+  - The helper function saving the checkpoints
+  - providing `step()` and `act()` methods
+* `ddpg_agent.py` - Implement the DDPG agent.
+  - The Actor's Local and Target neural networks, and the Critic's Local and Target neural networks are instanciated by the Agent's constructor
+  - The `learn()` method updates the policy and value parameters using given batch of experience tuples.
+* `Tennis.ipynb` - This Jupyter notebooks allows to instanciate and train the agent

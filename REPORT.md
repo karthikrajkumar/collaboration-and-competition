@@ -75,6 +75,9 @@ Input nodes ([ 8x3=24 states + 2 actions ] x 2 Agents = 52)
         -> Ouput node (1 node, no activation)
 ```
 
-Results
+### Results
 
-<img src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results.JPG" data-canonical-src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results.JPG" width="400" height="300" />
+<img src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results.JPG" data-canonical-src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results.JPG" width="450" height="300" />
+
+
+<img src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results%20graphical.JPG" data-canonical-src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results%20graphical.JPG" width="450" height="300" />

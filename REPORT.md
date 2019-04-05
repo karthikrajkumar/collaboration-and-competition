@@ -81,3 +81,17 @@ Input nodes ([ 8x3=24 states + 2 actions ] x 2 Agents = 52)
 
 
 <img src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results%20graphical.JPG" data-canonical-src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results%20graphical.JPG" width="450" height="300" />
+
+## Ideas for the future work
+* Prioritized Experience Replay - To improve the Multi agent's performance, would be to implement the [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952)
+  > Experience replay lets online reinforcement learning agents remember and reuse experiences from the past. In prior work, experience transitions were uniformly sampled from a replay memory. However, this approach simply replays transitions at the same frequency that they were originally experienced, regardless of their significance. In this paper we develop a framework for prioritizing experience, so as to replay important transitions more frequently, and therefore learn more efficiently. We use prioritized experience replay in Deep Q-Networks (DQN), a reinforcement learning algorithm that achieved human-level performance across many Atari games. DQN with prioritized experience replay achieves a new state-of-the-art, outperforming DQN with uniform replay on 41 out of 49 games.
+* Try and implementing the various algorithms like MA-D4PG [D4PG](https://openreview.net/forum?id=SyZipzbCb&noteId=SyZipzbCb)
+* As provided in the Open AI's Spinning up website, we can try to improve the performance by implementing the Twin Delayed DDPG ([TD3](https://spinningup.openai.com/en/latest/algorithms/td3.html))
+  > While DDPG can achieve great performance sometimes, it is frequently brittle with respect to hyperparameters and other kinds of tuning. A common failure mode for DDPG is that the learned Q-function begins to dramatically overestimate Q-values, which then leads to the policy breaking, because it exploits the errors in the Q-function. Twin Delayed DDPG (TD3) is an algorithm which addresses this issue by introducing three critical tricks:
+  * Trick One: Clipped Double-Q Learning. TD3 learns two Q-functions instead of one (hence “twin”), and uses the smaller of the two Q-values to form the targets in the Bellman error loss functions.
+  * Trick Two: “Delayed” Policy Updates. TD3 updates the policy (and target networks) less frequently than the Q-function. The paper recommends one policy update for every two Q-function updates.
+  * Trick Three: Target Policy Smoothing. TD3 adds noise to the target action, to make it harder for the policy to exploit Q-function errors by smoothing out Q along changes in action.
+ Together, these three tricks result in substantially improved performance over baseline DDPG
+
+
+

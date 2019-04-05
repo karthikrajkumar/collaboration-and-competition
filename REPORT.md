@@ -45,3 +45,12 @@ The code consist of
 * `hyperparameters.py`  - Defines all the hyperparameters in constant variables.
 * `utils.py`  -  Implement some helper functions to encode the states and actions before being inserted in the Replay Buffer, and decode them when a batch of experience is sampled from the Replay Buffer 
 * `Tennis.ipynb` - This Jupyter notebooks allows to instanciate and train the agent
+
+## Multi Agent DDPG implementation Observations and reasons
+
+As a starting point, I mainly used the vanilla DDPG architecture and parameters used in the previous Udacity project/Tutorials (Neural networks with 2 dense layers of size 400 and 300, Learning rate of 1e-4 for the Actors and 1e-3 for the Critics networks, discount factor of 0.99, tau with value 1e-3)
+
+Factors which made to converge faster are 
+* Use a use normal distribution to sample experiences from the Replay Buffer
+* Adding Batch Normalization after the Activation in the first layers of the neural network helped to converge a bit faster 
+* Altering the Critics neural network so that the actions and states are concatenated directly at the input of the network 

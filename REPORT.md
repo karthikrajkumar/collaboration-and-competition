@@ -53,4 +53,28 @@ As a starting point, I mainly used the vanilla DDPG architecture and parameters 
 Factors which made to converge faster are 
 * Use a use normal distribution to sample experiences from the Replay Buffer
 * Adding Batch Normalization after the Activation in the first layers of the neural network helped to converge a bit faster 
-* Altering the Critics neural network so that the actions and states are concatenated directly at the input of the network 
+* Altering the Critics neural network so that the actions and states are concatenated directly at the input of the network.
+* Changing the learning rates - Having similar and slightly higher learning rate for both the actor and the critic network and it helped solving the environment.  1e-4 (actors) and 5e-3 (critics) and batch size of 200
+* Changing the units in the architecture doesn't made any difference.
+
+**Actor Neural Network Architecture**
+```
+Input nodes (8x3 = 24)
+  -> Fully connected nodes (400 nodes, Relu activation)
+    -> Batch Normalization
+      -> Fully Connected Layer (300 nodes, Relu activation)
+        -> Ouput nodes (2 units/action, tanh activation)
+```
+
+**Critic Neural Network Architecture**
+```
+Input nodes ([ 8x3=24 states + 2 actions ] x 2 Agents = 52) 
+  -> Fully Connected Layer (400 nodes, Relu activation)
+    -> Batch Normlization
+      -> Fully Connected Layer (300 nodes, Relu activation)
+        -> Ouput node (1 node, no activation)
+```
+
+Results
+
+<img src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results.JPG" data-canonical-src="https://github.com/karthikrajkumar/collaboration-and-competition/blob/master/images/results.JPG" width="400" height="300" />
